@@ -13,11 +13,11 @@
 { pkgs, ... }:
 
 {
-  #config = {
-  #  allowUnfree = true;
-  #  allowBroken = false;
-  #  allowUnsupportedSystem = true;
-  #};
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = false;
+    allowUnsupportedSystem = true;
+  };
   home = {                                        
     # Specific packages for macbook
     packages = with pkgs; [
