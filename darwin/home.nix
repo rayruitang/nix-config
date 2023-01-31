@@ -39,7 +39,40 @@
     file = {
       ".config/karabiner/assets/complex_modifications/custom-capslock.json" = {
         enable = true;
-        source = ./cumtom-capslock.json;
+        text = ''
+          {
+            "title": "Change caps_lock to Esc and Control",
+            "rules": [
+          	{
+          	  "description": "Post Esc if Caps is tapped, Control if held.",
+          	  "manipulators": [
+                  {
+              "type": "basic",
+              "from": {
+                  "key_code": "left_control",
+                  "modifiers": {
+                      "optional": [
+                          "any"
+                      ]
+                  }
+              },
+              "to": [
+                  {
+                      "key_code": "left_control",
+                      "lazy": true
+                  }
+              ],
+              "to_if_alone": [
+                  {
+                      "key_code": "escape"
+                  }
+              ]
+          }
+          	  ]
+          	}
+            ]
+          }
+        '';
       };
     };
     stateVersion = "22.11";
