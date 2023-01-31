@@ -13,11 +13,6 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken = false;
-    allowUnsupportedSystem = true;
-  };
   home = {                                        
     # Specific packages for macbook
     packages = with pkgs; [
@@ -27,6 +22,14 @@
       fd
       curl
       less
+      # spotify
+      wget
+      # Terminal
+      ansible
+      ranger
+      # Languages
+      python3
+      vscode
       # emacs
       # obsidian
       # vscode
@@ -100,7 +103,16 @@
         autoload -U promptinit; promptinit
         pfetch
       '';                                         
-      shellAliases = { ls = "ls --color=auto -F"; };
+      shellAliases = { 
+        ls = "ls --color=auto -F"; 
+        cat = "bat";
+        g = "git";
+        gl = "git log";
+        gc = "git commit -m";
+        gca = "git commit -am";
+        nixinfo = "nix-shell -p nix-info --run \"nix-info -m\"";
+        drs = "darwin-rebuild switch --flake .#macbookpro";
+      };
     };
 
     neovim = {
@@ -150,19 +162,15 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
-      settings = {
-        command_timeout = 1000;
-        character = {
-          success_symbol = " [λ](bold green)";
-          error_symbol = " [λ](bold red)";
-        }; 
-      };
     };
 
     alacritty = {
       enable = true;
       # settings.font.normal.family = "MesloLGS Nerd Font Mono"; 
-      settings.font.normal.family = "FiraCode Nerd Font Mono Retina"; 
+      settings.font.normal = {
+        family = "FiraCode Nerd Font Mono"; 
+        style = "Retina";
+      };
       settings.font.size = 16;
     };
 

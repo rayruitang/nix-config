@@ -10,6 +10,11 @@
 { config, pkgs, user, ... }:
 
 {
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = false;
+    allowUnsupportedSystem = true;
+  };
   #imports = [
   #  ./modules/yabai.nix
   #  ./modules/skhd.nix
@@ -56,17 +61,6 @@
     systemPackages = with pkgs; [         # Installed Nix packages
       # Standard toolsets
       coreutils-full
-      wget
-      jq
-      # Terminal
-      ansible
-      ranger
-      # Editors
-      neovim
-      # Languages
-      python3
-      gcc
-      cmake
     ];
     systemPath = [ "/opt/homebrew/bin" ];
     pathsToLink = [ "/Applications" ];
@@ -104,6 +98,12 @@
       "amethyst"
       "karabiner-elements"
       "firefox"
+      "spotify"
+      "discord"
+      "slack"
+      "mathpix-snipping-tool"
+      "zoom"
+      "obsidian"
       #"plex-media-player"
     ];
   };
