@@ -27,8 +27,7 @@
       fd
       curl
       less
-      emacs
-      zathura
+      # emacs
       # obsidian
       # vscode
     ];
@@ -151,15 +150,27 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
+      settings = {
+        command_timeout = 1000;
+        character = {
+          success_symbol = " [λ](bold green)";
+          error_symbol = " [λ](bold red)";
+        }; 
+      };
     };
 
     alacritty = {
       enable = true;
-      settings.font.normal.family = "MesloLGS Nerd Font Mono"; 
+      # settings.font.normal.family = "MesloLGS Nerd Font Mono"; 
+      settings.font.normal.family = "FiraCode Nerd Font Mono Retina"; 
       settings.font.size = 16;
     };
 
     gpg = {
+      enable = true;
+    };
+
+    emacs = {
       enable = true;
     };
 
@@ -182,6 +193,10 @@
     };
 
     exa = {
+      enable = true;
+    };
+
+    htop = {
       enable = true;
     };
   };

@@ -35,10 +35,12 @@
     fonts = with pkgs; [
       source-code-pro
       font-awesome
-      fira-code
       (nerdfonts.override {
         fonts = [
           "Meslo"
+          "FiraCode"
+          "DroidSansMono"
+          "Iosevka"
         ];
       })
     ];
