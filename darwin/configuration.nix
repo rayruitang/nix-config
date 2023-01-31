@@ -56,7 +56,6 @@
       coreutils-full
       wget
       jq
-      # Helpful shell stuff
       # Terminal
       ansible
       ranger
@@ -102,6 +101,7 @@
       "raycast"
       "amethyst"
       "karabiner-elements"
+      "firefox"
       #"plex-media-player"
     ];
   };
