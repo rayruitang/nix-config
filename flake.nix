@@ -31,11 +31,20 @@
       };
     };
   # Function that tells my flake which to use and what do what to do with the dependencies.
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, nur, doom-emacs, ... }:   
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, ... }:   
     let                                                                     
       # Variables that can be used in the config files.
       user = "ruitang";
-      location = "$HOME/.setup";
+      # system = "aarch64-darwin";
+      # pkgs = import nixpkgs {
+      #   inherit system;
+      #   config = {
+      #     allowUnfree = true;
+      #   };
+      # };
+
+      # lib = nixpkgs.lib;
+      # location = "$HOME/.setup";
     in                                                                      
     # Use above variables in ...
     {
@@ -43,7 +52,7 @@
       darwinConfigurations = (                                              
         import ./darwin {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager darwin user;
+          inherit inputs nixpkgs home-manager darwin user ;
         }
       );
     };

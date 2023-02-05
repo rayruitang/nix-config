@@ -122,27 +122,35 @@
       vimdiffAlias = true;
       plugins = with pkgs.vimPlugins; [
 
+        # TODO: add and remove plugins.
+        # treesitter
+        nvim-treesitter.withAllGrammars
+        # Luasnip
+        luasnip
+        # telescope
+        telescope-nvim
         # Syntax
         vim-nix
         vim-markdown
 
         # Quality of life
-        vim-lastplace                             # Opens document where you left it
-        auto-pairs                                # Print double quotes/brackets/etc.
-        vim-gitgutter                             # See uncommitted changes of file :GitGutterEnable
+        vim-lastplace                             
+        auto-pairs                                
+        vim-gitgutter                             
 
         # File Tree
-        nerdtree                                  # File Manager - set in extraConfig to F6
+        nerdtree                                  
 
         # Customization 
-        wombat256-vim                             # Color scheme for lightline
-        srcery-vim                                # Color scheme for text
+        wombat256-vim                             
+        srcery-vim                                
 
-        lightline-vim                             # Info bar at bottom
-        indent-blankline-nvim                     # Indentation lines
+        lightline-vim                             
+        indent-blankline-nvim                     
       ];
 
       extraConfig = ''
+
         syntax enable                             " Syntax highlighting
         colorscheme srcery                        " Color scheme text
 
@@ -162,6 +170,13 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
+      settings = {
+        command_timeout = 1000;
+        character = {
+          success_symbol = " [λ](bold green)";
+          error_symbol = " [λ](bold red)";
+        };
+      };
     };
 
     alacritty = {
@@ -205,6 +220,9 @@
     };
 
     htop = {
+      enable = true;
+    };
+    pandoc = {
       enable = true;
     };
   };

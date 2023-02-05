@@ -61,6 +61,7 @@
     systemPackages = with pkgs; [         # Installed Nix packages
       # Standard toolsets
       coreutils-full
+      texlive.combined.scheme-full
     ];
     systemPath = [ "/opt/homebrew/bin" ];
     pathsToLink = [ "/Applications" ];
