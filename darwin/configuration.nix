@@ -105,6 +105,8 @@
       "mathpix-snipping-tool"
       "zoom"
       "obsidian"
+      "texmacs"
+      "lyx"
       #"plex-media-player"
     ];
   };
