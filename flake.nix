@@ -52,7 +52,7 @@
       darwinConfigurations = (                                              
         import ./darwin {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager darwin doom-eamcs user ;
+          inherit inputs nixpkgs home-manager darwin doom-emacs user ;
         }
       );
     };
