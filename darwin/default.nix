@@ -25,7 +25,7 @@ in
       home-manager.darwinModules.home-manager {             
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user; };  # Pass flake variable
+        home-manager.extraSpecialArgs = { inherit user doom-emacs; };  # Pass flake variable
         home-manager.users.${user} = import ./home.nix;
       }
     ];

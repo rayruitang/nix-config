@@ -85,8 +85,8 @@
     masApps = {};
     onActivation = {
       # Auto update packages
-      autoUpdate = false;                 
-      upgrade = false;
+      autoUpdate = true;                 
+      upgrade = true;
       # Uninstall not listed packages and casks
       cleanup = "zap";                    
     };
@@ -107,11 +107,15 @@
       "obsidian"
       "texmacs"
       "lyx"
+      "pdf-expert"
       #"plex-media-player"
     ];
   };
 
   nix = {
+    settings = {
+      auto-optimise-store = true;
+    };
     package = pkgs.nix;
     # Garbage collection
     gc = {                                
