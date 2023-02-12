@@ -8,7 +8,7 @@
 #       └─ home.nix
 #
 
-{ lib, inputs, nixpkgs, home-manager, darwin, user, ...}:
+{ lib, inputs, nixpkgs, home-manager, darwin, doom-emacs, user, ...}:
 
 let
   # System architecture

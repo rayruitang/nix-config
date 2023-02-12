@@ -108,6 +108,7 @@
       "texmacs"
       "lyx"
       "pdf-expert"
+      "citrix-workspace"
       #"plex-media-player"
     ];
   };
