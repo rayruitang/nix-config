@@ -29,7 +29,7 @@
       ranger
       # Languages
       python3
-      vscode
+      mysql
       # emacs
       # obsidian
       # vscode

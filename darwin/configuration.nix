@@ -109,6 +109,9 @@
       "lyx"
       "pdf-expert"
       "citrix-workspace"
+      "zotero"
+      "xquartz"
+      # "mysqlworkbench"
       #"plex-media-player"
     ];
   };
