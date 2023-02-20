@@ -90,8 +90,24 @@
       # Uninstall not listed packages and casks
       cleanup = "zap";                    
     };
+    taps = [
+      "d12frosted/emacs-plus"
+      "homebrew/cask"
+    ];
     brews = [
       "wireguard-tools"
+      {
+        name = "emacs-plus@28";
+        args = [
+          "with-debug"
+          "with-x11"
+          "with-native-comp"
+          "with-modern-doom3-icon"
+          "with-dbus"
+          "with-ctags"
+          "with-mailutils"
+        ];
+      }
     ];
     casks = [
       #"parsec"

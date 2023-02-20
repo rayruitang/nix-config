@@ -31,7 +31,7 @@
       };
     };
   # Function that tells my flake which to use and what do what to do with the dependencies.
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, doom-emacs, ... }:   
+  outputs = inputs @ { self, nur, nixpkgs, home-manager, darwin, doom-emacs, ... }:   
     let                                                                     
       # Variables that can be used in the config files.
       user = "ruitang";
@@ -52,7 +52,7 @@
       darwinConfigurations = (                                              
         import ./darwin {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager darwin doom-emacs user ;
+          inherit inputs nur nixpkgs home-manager darwin doom-emacs user ;
         }
       );
     };

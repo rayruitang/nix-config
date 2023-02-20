@@ -8,7 +8,7 @@
 #       └─ home.nix
 #
 
-{ lib, inputs, nixpkgs, home-manager, darwin, doom-emacs, user, ...}:
+{ lib, inputs, nur, nixpkgs, home-manager, darwin, doom-emacs, user, ...}:
 
 let
   # System architecture
@@ -20,7 +20,9 @@ in
     specialArgs = { inherit user inputs; };
     # Modules that are used
     modules = [                                             
+      nur.nixosModules.nur
       ./configuration.nix
+
       # Home-Manager module that is used
       home-manager.darwinModules.home-manager {             
         home-manager.useGlobalPkgs = true;
