@@ -19,19 +19,13 @@
         url = "github:nix-community/NUR";                                   
       };
       # Emacs Overlays
-      emacs-overlay = {                                                     
+      emacs-overlay = {                                 
         url = "github:nix-community/emacs-overlay";
-        flake = false;
-      };
-      # Nix-community Doom Emacs
-      doom-emacs = {                                                        
-         url = "github:nix-community/nix-doom-emacs";
-         inputs.nixpkgs.follows = "nixpkgs";
-         inputs.emacs-overlay.follows = "emacs-overlay";
+        inputs.nixpkgs.follows = "nixpkgs";
       };
     };
   # Function that tells my flake which to use and what do what to do with the dependencies.
-  outputs = inputs @ { self, nur, nixpkgs, home-manager, darwin, doom-emacs, ... }:   
+  outputs = inputs @ { self, nur, nixpkgs, home-manager, darwin, ... }:   
     let                                                                     
       # Variables that can be used in the config files.
       user = "ruitang";
@@ -52,7 +46,7 @@
       darwinConfigurations = (                                              
         import ./darwin {
           inherit (nixpkgs) lib;
-          inherit inputs nur nixpkgs home-manager darwin doom-emacs user ;
+          inherit inputs nixpkgs nur home-manager darwin user;
         }
       );
     };

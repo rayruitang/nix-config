@@ -10,16 +10,23 @@
 { config, pkgs, user, ... }:
 
 {
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken = false;
-    allowUnsupportedSystem = true;
-  };
+  #nixpkgs= {
+  #  config = {
+  #    allowUnfree = true;
+  #    allowBroken = false;
+  #    allowUnsupportedSystem = true;
+  #  }; 
+  #  overlays = [
+  #    (import (builtins.fetchTarball {
+  #      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+  #      sha256 = "0ca6qlnmi3y3gagvlw44ddk223rf9iz3nr57imm3xag9shgrfa83";
+  #  }))
+  #  ];
+  #};
   #imports = [
   #  ./modules/yabai.nix
   #  ./modules/skhd.nix
   #];
-
   # macOS user
   users.users."${user}" = {               
     home = "/Users/${user}";
@@ -62,8 +69,12 @@
       # Standard toolsets
       coreutils-full
       texlive.combined.scheme-full
+      emacs
     ];
-    systemPath = [ "/opt/homebrew/bin" ];
+    systemPath = [ 
+      "/opt/homebrew/bin" 
+      "$HOME/.emacs.d/bin"
+    ];
     pathsToLink = [ "/Applications" ];
   };
   # Shell needs to be enabled
@@ -76,6 +87,7 @@
   services = {
     # Auto upgrade daemon
     nix-daemon.enable = true;             
+    #emacs.package = pkgs.emacsGit;
   };
   # Declare Homebrew using Nix-Darwin
   homebrew = {                            
@@ -94,21 +106,19 @@
       "d12frosted/emacs-plus"
       "homebrew/cask"
     ];
-    brews = [
-      "wireguard-tools"
-      {
-        name = "emacs-plus@28";
-        args = [
-          "with-debug"
-          "with-x11"
-          "with-native-comp"
-          "with-modern-doom3-icon"
-          "with-dbus"
-          "with-ctags"
-          "with-mailutils"
-        ];
-      }
-    ];
+    #brews = [
+    #  {
+    #    name = "emacs-plus@28";
+    #    args = [
+    #      "with-debug"
+    #      "with-native-comp"
+    #      "with-modern-doom3-icon"
+    #      "with-dbus"
+    #      "with-ctags"
+    #      "with-mailutils"
+    #    ];
+    #  }
+    #];
     casks = [
       #"parsec"
       "raycast"

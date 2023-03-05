@@ -18,7 +18,7 @@
     packages = with pkgs; [
       # Terminal
       pfetch
-      ripgrep
+      (ripgrep.override { withPCRE2 = true; })
       fd
       curl
       less
@@ -33,6 +33,13 @@
       # emacs
       # obsidian
       # vscode
+      binutils
+      gnutls
+      imagemagick
+      zstd
+      sqlite
+      editorconfig-core-c
+      emacs-all-the-icons-fonts
     ];
 
     sessionVariables = {
