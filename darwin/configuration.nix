@@ -69,7 +69,7 @@
       # Standard toolsets
       coreutils-full
       texlive.combined.scheme-full
-      emacsGit
+      emacs
     ];
     systemPath = [ 
       "/opt/homebrew/bin" 
@@ -87,7 +87,7 @@
   services = {
     # Auto upgrade daemon
     nix-daemon.enable = true;             
-    emacs.package = pkgs.emacsGit;
+    emacs.package = pkgs.emacs;
     emacs.enable = true;
   };
   # Declare Homebrew using Nix-Darwin
