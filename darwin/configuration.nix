@@ -62,14 +62,14 @@
     shells = with pkgs; [ bash zsh ];          # Default shell
     loginShell = pkgs.zsh;
     variables = {                         # System variables
-      EDITOR = "nvim";
-      VISUAL = "nvim";
+      EDITOR = "emacsclient";
+      VISUAL = "emacsclient";
     };
     systemPackages = with pkgs; [         # Installed Nix packages
       # Standard toolsets
       coreutils-full
       texlive.combined.scheme-full
-      emacs
+      emacsGit
     ];
     systemPath = [ 
       "/opt/homebrew/bin" 
@@ -87,7 +87,8 @@
   services = {
     # Auto upgrade daemon
     nix-daemon.enable = true;             
-    #emacs.package = pkgs.emacsGit;
+    emacs.package = pkgs.emacsGit;
+    emacs.enable = true;
   };
   # Declare Homebrew using Nix-Darwin
   homebrew = {                            

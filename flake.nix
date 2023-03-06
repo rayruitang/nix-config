@@ -19,10 +19,10 @@
         url = "github:nix-community/NUR";                                   
       };
       # Emacs Overlays
-      emacs-overlay = {                                 
-        url = "github:nix-community/emacs-overlay";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
+      #emacs-overlay = {                                 
+      #  url = "github:nix-community/emacs-overlay";
+      #  inputs.nixpkgs.follows = "nixpkgs";
+      #};
     };
   # Function that tells my flake which to use and what do what to do with the dependencies.
   outputs = inputs @ { self, nur, nixpkgs, home-manager, darwin, ... }:   

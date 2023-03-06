@@ -22,7 +22,7 @@ let
     config = {allowUnfree = true;};
     overlays = [
       inputs.nur.overlay
-      #emacs-overlay.overlay
+      #inputs.emacs-overlay.overlay
       (import (builtins.fetchTarball {
          url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
          sha256 = "0ca6qlnmi3y3gagvlw44ddk223rf9iz3nr57imm3xag9shgrfa83";
@@ -37,14 +37,13 @@ in
     specialArgs = { inherit user inputs; };
     # Modules that are used
     modules = [                                             
-      nur.nixosModules.nur
+      #nur.nixosModules.nur
       ./configuration.nix
-
       # Home-Manager module that is used
       home-manager.darwinModules.home-manager {             
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user ; };  # Pass flake variable
+        home-manager.extraSpecialArgs = { inherit user; };  # Pass flake variable
         home-manager.users.${user} = import ./home.nix;
       }
     ];

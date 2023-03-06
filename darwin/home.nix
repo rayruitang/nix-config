@@ -45,7 +45,7 @@
     sessionVariables = {
       PAGER = "less";
       CLICLOLOR = 1;
-      EIDTOR = "nvim";
+      EIDTOR = "emacsclient";
     };
     file = {
       ".config/karabiner/assets/complex_modifications/custom-capslock.json" = {
@@ -197,10 +197,6 @@
     };
 
     gpg = {
-      enable = true;
-    };
-
-    emacs = {
       enable = true;
     };
 
