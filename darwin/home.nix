@@ -40,12 +40,15 @@
       sqlite
       editorconfig-core-c
       emacs-all-the-icons-fonts
+      coreutils-full
+      fontconfig
+      shellcheck
     ];
 
     sessionVariables = {
       PAGER = "less";
       CLICLOLOR = 1;
-      EIDTOR = "emacsclient";
+      #EIDTOR = "emacsclient";
     };
     file = {
       ".config/karabiner/assets/complex_modifications/custom-capslock.json" = {

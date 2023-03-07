@@ -47,12 +47,16 @@
     fonts = with pkgs; [
       source-code-pro
       font-awesome
+      julia-mono
+      ibm-plex
+      jetbrains-mono
       (nerdfonts.override {
         fonts = [
           "Meslo"
           "FiraCode"
           "DroidSansMono"
           "Iosevka"
+          "Overpass"
         ];
       })
     ];
@@ -73,7 +77,7 @@
     ];
     systemPath = [ 
       "/opt/homebrew/bin" 
-      "$HOME/.emacs.d/bin"
+      "$HOME/.config/emacs/bin"
     ];
     pathsToLink = [ "/Applications" ];
   };
@@ -87,8 +91,11 @@
   services = {
     # Auto upgrade daemon
     nix-daemon.enable = true;             
-    emacs.package = pkgs.emacs;
-    emacs.enable = true;
+    #emacs.package = pkgs.emacs;
+    emacs = {
+      enable = true;
+      defaultEditor = true;
+    };
   };
   # Declare Homebrew using Nix-Darwin
   homebrew = {                            
